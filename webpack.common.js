@@ -1,20 +1,22 @@
-const path = require("path");
-const HTMLWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+/* eslint-disable import/no-extraneous-dependencies */
+const path = require('path');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 module.exports = {
-  entry: "./src/index.js",
+  entry: './src/index.js',
   output: {
-    path: path.join(__dirname, "dist"),
-    assetModuleFilename: "images/[name][ext][query]",
-    filename: "bundle.js",
+    path: path.join(__dirname, 'dist'),
+    assetModuleFilename: 'images/[name][ext][query]',
+    filename: 'bundle.js',
     clean: true,
   },
   plugins: [
     new HTMLWebpackPlugin({
-      template: "./src/index.html",
+      template: './src/index.html',
     }),
     new MiniCssExtractPlugin({
-      filename: "styles.css",
+      filename: 'styles.css',
     }),
   ],
   module: {
@@ -22,11 +24,11 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: [{ loader: "babel-loader" }],
+        use: [{ loader: 'babel-loader' }],
       },
       {
         test: /\.(png|svg|jpg|gif)/i,
-        type: "asset/resource",
+        type: 'asset/resource',
       },
       {
         test: /\.css/,

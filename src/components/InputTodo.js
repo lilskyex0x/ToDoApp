@@ -1,7 +1,9 @@
-import { useState } from "react";
+/* eslint-disable react/prop-types */
+import { useState } from 'react';
+
 const InputTodo = ({ addTodoItem }) => {
-  const [title, setTitle] = useState("");
-  const [message, setMessage] = useState("");
+  const [title, setTitle] = useState('');
+  const [message, setMessage] = useState('');
 
   const handleChange = (e) => {
     setTitle(e.target.value);
@@ -11,10 +13,10 @@ const InputTodo = ({ addTodoItem }) => {
     e.preventDefault();
     if (title.trim()) {
       addTodoItem(title);
-      setTitle("");
-      setMessage("");
+      setTitle('');
+      setMessage('');
     } else {
-      setMessage("Please add item.");
+      setMessage('Please add item.');
     }
   };
 
@@ -28,7 +30,9 @@ const InputTodo = ({ addTodoItem }) => {
           onChange={handleChange}
           className="input-text"
         />
-        <button className="input-submit">Submit</button>
+        <button type="submit" className="input-submit">
+          Submit
+        </button>
       </form>
       <span className="submit-warning">{message}</span>
     </>
